@@ -1,30 +1,4 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-
-const Header = () => {
-  return (
-    <div className="header">
-      <div className="logo-container">
-        <img
-          className="logo"
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdaMYtVi9_tfNcpsbGGseU6ehYgV9UeU3h7A&s"
-        />
-      </div>
-      <div className="nav-items">
-        <ul>
-          <li>Home</li>
-          <li>About us</li>
-          <li>Contact</li>
-          <li>cart</li>
-        </ul>
-      </div>
-    </div>
-  );
-};
-const Style = {
-  background: "red",
-};
-const rescon = [
+export const rescon = [
   {
     info: {
       id: "362596",
@@ -1605,50 +1579,3 @@ const rescon = [
     },
   },
 ];
-const Resturant = (pr) => {
-  const { resobj } = pr;
-  const { name, avgRatingString, costForTwo, cuisines, cloudinaryImageId } =
-    resobj?.info;
-  return (
-    <div className="res-card" style={{ background: "grey" }}>
-      <img
-        className="image"
-        src={
-          "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
-          cloudinaryImageId
-        }
-      />
-      <h3>{name}</h3>
-
-      <h4>{avgRatingString}</h4>
-      <h4>{costForTwo}</h4>
-      <h4>{cuisines.join("  ,")}</h4>
-    </div>
-  );
-};
-{
-  console.log(rescon[4].info.avgRatingString);
-}
-const Body = () => {
-  return (
-    <div className="body">
-      <div className="search">search</div>
-      <div className="res-container">
-        {rescon.map((res) => {
-          return <Resturant key={res.info.id} resobj={res} />;
-        })}
-      </div>
-    </div>
-  );
-};
-const Applayout = () => {
-  return (
-    <div className="app">
-      <Header />
-      <Body />
-    </div>
-  );
-};
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<Applayout />);
